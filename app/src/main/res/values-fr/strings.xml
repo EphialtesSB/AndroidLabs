@@ -3,4 +3,5 @@
     <string name="app_name">Android Labs</string>
     <string name="hello_message">Bonjour Monde!</string>
     <string name="ButtonText">Je suis un Button</string>
+    <string name="GUI">Regarde mon GUI </string>
 </resources>

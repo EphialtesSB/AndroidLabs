@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/lookatmyguir"
+        android:layout_width="410dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:text="TextView"
+        android:textSize="30sp"
+        tools:text="Look at my GUI" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="108dp"
+        android:layout_below="@+id/button3"
+        app:srcCompat="@drawable/flag" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="222dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lookatmyguir"
+        android:text="Click Here" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="189dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/lookatmyguir"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_toEndOf="@+id/button3"
+        android:layout_toRightOf="@+id/button3"
+        android:text="Check this out!" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_below="@+id/imageButton2"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Type name here" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="186dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/checkBox3"
+        android:layout_marginLeft="1dp"
+        android:layout_toRightOf="@+id/imageButton2"
+        android:text="Switch on / off" />
+
+</RelativeLayout>
