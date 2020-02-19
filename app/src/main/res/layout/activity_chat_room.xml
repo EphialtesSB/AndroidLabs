@@ -23,7 +23,11 @@
         android:layout_height="wrap_content"
         android:text="Send"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:onClick="sendmessage"
+        android:gravity="right"
+        app:srcCompat="@drawable/row_send"
+        />
 
     <Button
         android:id="@+id/receiveButton"
@@ -32,18 +36,21 @@
         android:text="Receive"
         android:layout_below="@id/list"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true"
+        android:onClick="receivemessage"
+        app:srcCompat="@drawable/row_receive" />
+
 
     <EditText
         android:id="@+id/editText6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Type Here"
         android:layout_below="@id/list"
-        android:layout_toEndOf="@id/sendButton"
         android:layout_toStartOf="@id/receiveButton"
-        />
+        android:layout_toEndOf="@id/sendButton"
+        android:hint="Type here"
+        android:inputType="textPersonName"
+        android:onClick="clear"/>
 
 
 </RelativeLayout>
