@@ -52,7 +52,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             editText.setText("");
             elements.add(message);
             myAdapter.notifyDataSetChanged();
-            this.imageId = imageId;
+
 
          }
 
