@@ -53,7 +53,6 @@ public class ChatRoomActivity extends AppCompatActivity {
             elements.add(message);
             myAdapter.notifyDataSetChanged();
 
-
          }
 
 
@@ -87,6 +86,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             //return it to be put in the table
             return newView;
+
         }
 
 
