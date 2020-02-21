@@ -31,11 +31,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         ListView list = findViewById(R.id.list);
 
         list.setAdapter(myAdapter = new MyListAdapter());
-
-        /*Button receiveButton = (Button)findViewById(R.id.receiveButton);
-        receiveButton.setOnClickListener(this);
-        Button sendButton = (Button)findViewById(R.id.sendButton);
-        sendButton.setOnClickListener(this); */
+        
     }
 
 
@@ -104,7 +100,6 @@ public class ChatRoomActivity extends AppCompatActivity {
 
 
     }
-
 
 
     private class Message {
