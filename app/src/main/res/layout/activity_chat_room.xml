@@ -25,8 +25,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:onClick="sendmessage"
-        android:gravity="right"
-        app:srcCompat="@drawable/row_send"
         />
 
     <Button
@@ -38,7 +36,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:onClick="receivemessage"
-        app:srcCompat="@drawable/row_receive" />
+        />
 
 
     <EditText
