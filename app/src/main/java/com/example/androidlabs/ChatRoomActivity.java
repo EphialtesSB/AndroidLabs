@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,8 @@ public class ChatRoomActivity extends AppCompatActivity {
     SQLiteDatabase db;
 
     EditText editText;
+
+    public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +123,8 @@ public class ChatRoomActivity extends AppCompatActivity {
         Cursor results = db.query(false, MyOpener.TABLE_NAME, columns, null, null, null, null, null, null);
 
 
+
+
         //Now the results object has rows of results that match the query.
         //find the column indices:
         int sendreceivedColIndex = results.getColumnIndex(MyOpener.COL_SENDRECEIVE);
@@ -136,9 +142,30 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             //add the new Contact to the array list:
             messages.add(new Message(message, sendrec, id));
-        }
+
+
+
+
+
+
+         }
+
+
+
+         printCursor(results, 1);
+
 
     }
+
+    public void printCursor (Cursor c, int version){
+        Log.d(ACTIVITY_NAME, "database version number - " + db.getVersion());
+        Log.d(ACTIVITY_NAME, "Number of Columns - " + c.getColumnCount());
+        Log.d(ACTIVITY_NAME, "name of columns - " + c.getColumnNames());
+        Log.d(ACTIVITY_NAME, "Number of results - " + c.getCount());
+        Log.d(ACTIVITY_NAME, "each row of results in the cursor " + DatabaseUtils.dumpCursorToString(c));
+    }
+
+
 
     protected void showMessage(int position)
     {
