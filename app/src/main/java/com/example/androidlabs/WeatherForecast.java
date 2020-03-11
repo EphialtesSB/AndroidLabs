@@ -205,7 +205,7 @@ public class WeatherForecast extends AppCompatActivity {
         public void onProgressUpdate(Integer ... args)
         {
          // set progress bar to args (25%)
-            ProgressBar.setProgress(args[0]);
+           // ProgressBar.setProgress(args[0]);
 
 
 
@@ -228,6 +228,15 @@ public class WeatherForecast extends AppCompatActivity {
             TextView maxtxt = findViewById(R.id.Max);
             maxtxt.setText(Max);
 
+
+            File file = getBaseContext().getFileStreamPath(Icon+ ".png");
+
+            ImageView Img;
+            Img = findViewById(R.id.ImageView);
+
+            String filePath = file.getPath();
+            Bitmap bitmap = BitmapFactory.decodeFile(filePath);
+            Img.setImageBitmap(bitmap);
 
         }
     }
