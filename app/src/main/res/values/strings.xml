@@ -4,4 +4,15 @@
     <string name="ButtonText">I\'m a Button</string>
     <string name="GUI">Look at my GUI </string>
     <string name="textview">TextView</string>
+    <string name="your_profile">Your Profile</string>
+    <string name="your_name">Your name :</string>
+    <string name="click_the_button_above_to_take_a_picture">Click the button above to take a picture</string>
+    <string name="todo">TODO</string>
+    <string name="go_to_chat">Go to chat</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="uv_rating" />
+    <string name="max_temperature">Max Temperature</string>
+    <string name="minimum_temperature">Minimum Temperature</string>
+    <string name="current_temperature">Current Temperature</string>
 </resources>

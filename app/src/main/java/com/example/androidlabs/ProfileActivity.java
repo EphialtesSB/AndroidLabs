@@ -26,7 +26,11 @@ public class ProfileActivity extends AppCompatActivity {
         ImageButton mimageButton = findViewById(R.id.picButton);
 
     }
+    public void gotoweather(View V){
+        Intent nextPage = new Intent(this, WeatherForecast.class);
+        startActivity(nextPage);
 
+    }
 
     public void gotochat(View V) {
         Intent nextPage = new Intent(this, ChatRoomActivity.class);

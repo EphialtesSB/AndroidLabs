@@ -15,7 +15,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="22dp"
-        android:text="Your Profile"
+        android:text="@string/your_profile"
         app:layout_constraintBottom_toTopOf="@+id/urname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="22dp"
         android:layout_marginBottom="8dp"
-        android:text="Your name :"
+        android:text="@string/your_name"
         app:layout_constraintBottom_toTopOf="@+id/editname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -42,12 +42,13 @@
         android:layout_marginStart="13dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Enter your name"
+        android:hint="@string/enter_your_name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/editemail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/urname" />
+        app:layout_constraintTop_toBottomOf="@+id/urname"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/editemail"
@@ -56,26 +57,38 @@
         android:layout_marginStart="11dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Enter your email"
+        android:hint="@string/enter_your_email"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editname" />
+        app:layout_constraintTop_toBottomOf="@+id/editname"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/WeatherForecast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="gotoweather"
+        android:text="Weather Forecast"
+        app:layout_constraintBottom_toBottomOf="@id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/buttonChat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="gotochat"
+        android:text="@string/go_to_chat" />
 
     <ImageButton
         android:id="@+id/picButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/picture_frame" />
+        android:src="@android:drawable/picture_frame"
+        android:contentDescription="@string/todo" />
 
-
-
-<Button
-android:id="@+id/buttonChat"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:text="Go to chat"
-android:onClick="gotochat"/>
 
     <TextView
         android:id="@+id/textView6"
@@ -84,8 +97,9 @@ android:onClick="gotochat"/>
         android:layout_marginStart="21dp"
         android:layout_marginEnd="22dp"
         android:layout_marginBottom="451dp"
-        android:text="Click the button above to take a picture"
+        android:text="@string/click_the_button_above_to_take_a_picture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </LinearLayout>
