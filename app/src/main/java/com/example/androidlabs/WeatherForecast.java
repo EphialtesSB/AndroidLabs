@@ -38,7 +38,7 @@ public class WeatherForecast extends AppCompatActivity {
         req.execute("http://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=7e943c97096a9784391a981c4d878b22&mode=xml&units=metrichttp://api.openweathermap.org/data/2.5/weather?q=ottawa,ca&APPID=7e943c97096a9784391a981c4d878b22&mode=xml&units=metric");
 
 
-        ProgressBar loadingimage  = (ProgressBar) findViewById(R.id.progressBar);
+        ProgressBar loadingimage  = findViewById(R.id.progressBar);
         loadingimage.setVisibility(View.VISIBLE);
 
         TextView Current  = findViewById(R.id.Current);
@@ -205,7 +205,7 @@ public class WeatherForecast extends AppCompatActivity {
         public void onProgressUpdate(Integer ... args)
         {
          // set progress bar to args (25%)
-           // ProgressBar.setProgress(args[0]);
+           //ProgressBar.setProgress(args[25]);
 
 
 
@@ -217,16 +217,19 @@ public class WeatherForecast extends AppCompatActivity {
             Log.i("HTTP", fromDoInBackground);
 
             TextView uvtxt = findViewById(R.id.Uv);
-            uvtxt.setText(uvRating.toString());
+            uvtxt.setText(" UV Rating "+ uvRating.toString());
 
             TextView currenttxt = findViewById(R.id.Current);
-            currenttxt.setText(Current);
+            currenttxt.setText(" Current temperature "+ Current);
 
             TextView mintxt = findViewById(R.id.Min);
-            mintxt.setText(Min);
+            mintxt.setText(" Minimum Temps "+ Min);
 
             TextView maxtxt = findViewById(R.id.Max);
-            maxtxt.setText(Max);
+            maxtxt.setText(" Maximum Temps "+ Max);
+
+            ProgressBar loadingimage  = findViewById(R.id.progressBar);
+            loadingimage.setVisibility(View.INVISIBLE);
 
 
             File file = getBaseContext().getFileStreamPath(Icon+ ".png");
