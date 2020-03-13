@@ -5,10 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".WeatherForecast">
+    tools:context=".WeatherForecast"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp">
 
 
-    <ImageView
+
+<ImageView
         android:id="@+id/ImageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
