@@ -15,4 +15,6 @@
     <string name="max_temperature">Max Temperature</string>
     <string name="minimum_temperature">Minimum Temperature</string>
     <string name="current_temperature">Current Temperature</string>
+
+
 </resources>

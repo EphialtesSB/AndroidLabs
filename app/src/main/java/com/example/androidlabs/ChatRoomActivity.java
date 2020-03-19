@@ -2,8 +2,8 @@ package com.example.androidlabs;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
@@ -26,8 +26,8 @@ public class ChatRoomActivity extends AppCompatActivity {
     private List<Message> messages = new ArrayList<Message>();
     private MyListAdapter myAdapter;
     SQLiteDatabase db;
-
     EditText editText;
+    boolean isTablet;
 
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
@@ -37,18 +37,48 @@ public class ChatRoomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat_room);
 
 
+
+
+
         ListView list = findViewById(R.id.list);
+        isTablet =  findViewById(R.id.frameLayout) != null;// 3. use findViewById() to look for the id of the FrameLayout.
+        // If it returns null then you are on a phone, otherwise it’s on a tablet.
+        // Store this in result in a Boolean variable.
 
         loadDataFromDatabase();
 
         list.setAdapter(myAdapter = new MyListAdapter());
-
-
-
         //This listens for items being clicked in the list view
         list.setOnItemLongClickListener(( parent,  view,  position,  id) -> {
             showMessage( position );
             return true;
+        });
+
+        list.setOnItemClickListener(( parent,  view,  position,  id) -> {
+            //Create a bundle to pass data to the new fragment
+            Message selectedMessage = messages.get(position);
+            Bundle dataToPass = new Bundle();
+            dataToPass.putString("message", selectedMessage.getMessage() );
+            dataToPass.putBoolean("isSent", selectedMessage.getisSent());
+            dataToPass.putLong("Id", selectedMessage.getId());
+
+
+            if(isTablet)
+            {
+                DetailFragment dFragment = new DetailFragment(); //add a DetailFragment
+                dFragment.setArguments( dataToPass ); //pass it a bundle for information
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout, dFragment) //Add the fragment in FrameLayout
+                        .commit(); //actually load the fragment.
+            }
+            else //isPhone
+            {
+                Intent nextActivity = new Intent(ChatRoomActivity.this, EmptyActivity.class);
+                nextActivity.putExtras(dataToPass); //send data to next activity
+                startActivity(nextActivity); //make the transition
+            }
+
         });
 
 
@@ -242,5 +272,9 @@ public class ChatRoomActivity extends AppCompatActivity {
            public long getId (){
             return id;
            }
+
+        public boolean getisSent() {
+            return isSent;
+        }
     }
 }
