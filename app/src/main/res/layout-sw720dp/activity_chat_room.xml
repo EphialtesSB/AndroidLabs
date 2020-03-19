@@ -7,23 +7,13 @@
     android:layout_height="match_parent"
     >
 
-    <framelayout
-        android:id="@+id/frameLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:layout_right="list"
-        android:layout_toEndOf="@id/list"
-
-        />
 
     <ListView
         android:id="@+id/list"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="false"
-        app:layout_constraintBottom_toTopOf="@+id/editText6"
+
         android:layout_above="@id/sendButton"/>
 
     <Button
@@ -57,7 +47,15 @@
         android:layout_toEndOf="@id/sendButton"
         android:hint="Type here"
         android:inputType="textPersonName"
-        android:onClick="clear"/>
+       />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@id/list"
+        android:id="@+id/frameLayout"
+        />
 
 
 </RelativeLayout>

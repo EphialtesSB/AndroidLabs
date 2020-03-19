@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        app:layout_constraintBottom_toTopOf="@+id/editText6"
+
         android:layout_above="@id/sendButton"/>
 
     <Button
@@ -48,7 +48,7 @@
         android:layout_toEndOf="@id/sendButton"
         android:hint="Type here"
         android:inputType="textPersonName"
-        android:onClick="clear"/>
+       />
 
 
 </RelativeLayout>

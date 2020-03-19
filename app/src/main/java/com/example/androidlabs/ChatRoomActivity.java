@@ -27,7 +27,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     private MyListAdapter myAdapter;
     SQLiteDatabase db;
     EditText editText;
-    boolean isTablet;
+
 
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
@@ -38,16 +38,18 @@ public class ChatRoomActivity extends AppCompatActivity {
 
 
 
+        loadDataFromDatabase();
 
 
-        ListView list = findViewById(R.id.list);
-        isTablet =  findViewById(R.id.frameLayout) != null;// 3. use findViewById() to look for the id of the FrameLayout.
+       boolean isTablet =  findViewById(R.id.frameLayout) != null;// 3. use findViewById() to look for the id of the FrameLayout.
         // If it returns null then you are on a phone, otherwise it’s on a tablet.
         // Store this in result in a Boolean variable.
 
-        loadDataFromDatabase();
 
+        ListView list = findViewById(R.id.list);
         list.setAdapter(myAdapter = new MyListAdapter());
+
+
         //This listens for items being clicked in the list view
         list.setOnItemLongClickListener(( parent,  view,  position,  id) -> {
             showMessage( position );
@@ -80,6 +82,7 @@ public class ChatRoomActivity extends AppCompatActivity {
             }
 
         });
+
 
 
     }
