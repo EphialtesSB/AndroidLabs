@@ -12,11 +12,15 @@ public class EmptyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_empty);
 
-        DetailFragment dFragment = new DetailFragment(); //add a DetailFragment
+        dataToPass = getIntent().getExtras();
+
+       DetailFragment dFragment = new DetailFragment(); //add a DetailFragment
         dFragment.setArguments( dataToPass ); //pass it a bundle for information
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frameLayout, dFragment) //Add the fragment in FrameLayout
                 .commit(); //actually load the fragment.
+
+
     }
 }

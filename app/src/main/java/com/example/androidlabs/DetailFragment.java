@@ -35,6 +35,9 @@ public class DetailFragment extends Fragment {
 
         dataFromActivity = getArguments();
 
+        TextView id = result.findViewById(R.id.id);
+        id.setText(dataFromActivity.getString("id"));
+
         CheckBox CheckBox = result.findViewById(R.id.checkBox4);
         CheckBox.setChecked(dataFromActivity.getBoolean("isSent"));
 

@@ -27,7 +27,7 @@ public class MyOpener extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE " + TABLE_NAME + " (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COL_MESSAGE + " text,"
-                + COL_SENDRECEIVE + "integer);");  // add or remove columns
+                + COL_SENDRECEIVE + " integer);");  // add or remove columns
     }
 
 
