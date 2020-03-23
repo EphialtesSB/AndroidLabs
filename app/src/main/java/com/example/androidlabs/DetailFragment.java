@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -35,8 +36,9 @@ public class DetailFragment extends Fragment {
 
         dataFromActivity = getArguments();
 
-        TextView id = result.findViewById(R.id.id);
-        id.setText(dataFromActivity.getString("id"));
+        id = dataFromActivity.getLong("Id");
+        TextView idView = result.findViewById(R.id.id);
+        idView.setText("ID=" + id);
 
         CheckBox CheckBox = result.findViewById(R.id.checkBox4);
         CheckBox.setChecked(dataFromActivity.getBoolean("isSent"));
@@ -45,7 +47,12 @@ public class DetailFragment extends Fragment {
         TextView messagetxt = result.findViewById(R.id.message);
         messagetxt.setText(dataFromActivity.getString("message"));
 
+        Button hide = result.findViewById(R.id.hide);
+        hide.setOnClickListener( clk -> {
 
+            //Tell the parent activity to remove
+            parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
+        });
 
 
         return result;

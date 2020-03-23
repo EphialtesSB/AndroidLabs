@@ -81,6 +81,10 @@ public class ChatRoomActivity extends AppCompatActivity {
                 startActivity(nextActivity); //make the transition
             }
 
+
+
+
+
         });
 
 
