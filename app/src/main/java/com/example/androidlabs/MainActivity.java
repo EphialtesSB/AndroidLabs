@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         String savedEmail = prefs.getString("email", "def");
         email.setText(savedEmail);
 
+        
     }
 
     @Override

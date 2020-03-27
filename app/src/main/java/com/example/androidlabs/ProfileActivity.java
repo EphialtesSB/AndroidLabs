@@ -36,5 +36,8 @@ public class ProfileActivity extends AppCompatActivity {
         Intent nextPage = new Intent(this, ChatRoomActivity.class);
         startActivity(nextPage);
     }
-
+    public void gotool(View V) {
+        Intent nextPage = new Intent(this, TestToolbar.class);
+        startActivity(nextPage);
+    }
 }
