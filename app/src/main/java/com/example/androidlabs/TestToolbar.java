@@ -2,6 +2,8 @@ package com.example.androidlabs;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,8 +12,9 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import com.google.android.material.navigation.NavigationView;
 
-public class TestToolbar extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class TestToolbar extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +27,7 @@ public class TestToolbar extends AppCompatActivity implements NavigationView.OnN
         //This loads the toolbar, which calls onCreateOptionsMenu below:
         setSupportActionBar(tBar);
 
-        //For NavigationDrawer:
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,
                 drawer, tBar, R.string.open, R.string.close);
@@ -33,6 +36,7 @@ public class TestToolbar extends AppCompatActivity implements NavigationView.OnN
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
 
@@ -44,20 +48,6 @@ public class TestToolbar extends AppCompatActivity implements NavigationView.OnN
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menut, menu);
 
-
-	    /* slide 15 material:
-	    MenuItem searchItem = menu.findItem(R.id.search_item);
-        SearchView sView = (SearchView)searchItem.getActionView();
-        sView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-            }
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }  });
-
-	    */
 
         return true;
     }
@@ -85,14 +75,39 @@ public class TestToolbar extends AppCompatActivity implements NavigationView.OnN
 
 
         }
-
-        
-
-        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
-        drawerLayout.closeDrawer(GravityCompat.START);
         
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         return true;
     }
 
+
+    // Needed for the OnNavigationItemSelected interface:
+    @Override
+    public boolean onNavigationItemSelected( MenuItem item) {
+
+        String message = null;
+
+        switch(item.getItemId())
+        {
+            case R.id.Weather:
+                Intent nextPage = new Intent(this, WeatherForecast.class);
+                startActivity(nextPage);
+                break;
+            case R.id.Chat:
+                nextPage = new Intent(this, ChatRoomActivity.class);
+                startActivity(nextPage);
+                break;
+            case R.id.Goback:
+                 nextPage = new Intent(this, TestToolbar.class);
+                startActivity(nextPage);
+                break;
+
+        }
+
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(GravityCompat.START);
+
+        Toast.makeText(this, "NavigationDrawer: " + message, Toast.LENGTH_LONG).show();
+        return false;
+    }
 }
